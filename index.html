@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 小小網頁設計師｜兒童課程報名</title>
+  <style>
+    body {
+      font-family: 'Microsoft JhengHei', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #ffd93d;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    section.hero {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #fff;
+    }
+    .hero img {
+      max-width: 280px;
+      margin-bottom: 1rem;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    section.features, section.signup {
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features li {
+      margin: 0.75rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .features li::before {
+      content: "🌟";
+      position: absolute;
+      left: 0;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      background: #ffd93d;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI 小小網頁設計師課程</h1>
+  </header>
+
+  <section class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/4321/4321078.png" alt="小朋友AI課程">
+    <h2>小朋友也能自己做網站！</h2>
+    <p>零基礎也能透過 AI 工具製作自己的 Landing Page！</p>
+  </section>
+
+  <section class="features">
+    <h3>課程亮點</h3>
+    <ul>
+      <li>適合國小 3-6 年級，無需程式背景</li>
+      <li>運用 ChatGPT 與 AI 畫圖工具</li>
+      <li>創作屬於自己的主題網站</li>
+      <li>成果發表會，邀請家長一起見證成長</li>
+    </ul>
+  </section>
+
+  <section class="signup">
+    <h3>立即報名</h3>
+    <form id="signup-form">
+      <input type="text" name="childName" placeholder="孩子姓名" required>
+      <input type="text" name="parentName" placeholder="家長姓名" required>
+      <input type="tel" name="phone" placeholder="聯絡電話" required>
+      <input type="email" name="email" placeholder="Email 信箱" required>
+      <textarea name="note" placeholder="備註 / 想了解的內容"></textarea>
+      <button type="submit">送出報名表單</button>
+    </form>
+  </section>
+
+  <footer>
+    若有問題歡迎聯絡我們｜LINE：@AIkidsdesign
+  </footer>
+
+  <script>
+    const form = document.getElementById("signup-form");
+  
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+  
+      const formData = {
+        childName: form.childName.value,
+        parentName: form.parentName.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        note: form.note.value
+      };
+  
+      fetch("https://script.google.com/macros/s/AKfycbwfVCHJdgn_eOmWToAn0wo_wA4Zou56piarfvd7ox_tQLyf5996Khy-uNl7Xc32jOwoFg/exec", {
+        method: "POST",
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.text())
+      .then(response => {
+        alert("報名成功，感謝您的填寫！");
+        form.reset();
+      })
+      .catch(err => {
+        alert("報名失敗，請稍後再試");
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>
