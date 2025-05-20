@@ -1,128 +1,296 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI 小小網頁設計師｜兒童課程報名</title>
+  <!-- 字體與動畫 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- 圖示 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     body {
-      font-family: 'Microsoft JhengHei', sans-serif;
+      font-family: 'Noto Sans TC', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
+      background: #fdfdfd;
       color: #333;
     }
+
     header {
-      background: #ffd93d;
-      padding: 2rem;
+      background: linear-gradient(to right, #ffcf00, #f9a825);
+      padding: 2rem 1rem;
       text-align: center;
+      color: #333;
     }
+
     header h1 {
+      font-size: 2.4rem;
       margin: 0;
-      font-size: 2.2rem;
+      animation: bounceInDown 1s;
     }
+
+    section {
+      padding: 2rem 1.5rem;
+      max-width: 860px;
+      margin: 1.5rem auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
     section.hero {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: #fff;
     }
+
     .hero img {
-      max-width: 280px;
+      max-width: 220px;
       margin-bottom: 1rem;
+      animation: fadeIn 1s;
     }
+
     .hero h2 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin-bottom: 0.5rem;
+      color: #ff9800;
     }
-    section.features, section.signup {
-      padding: 2rem 1.5rem;
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      border-radius: 8px;
-      margin-top: 1.5rem;
-    }
-    .features ul {
+
+    .features ul, .testimonials ul {
       list-style: none;
       padding: 0;
     }
-    .features li {
-      margin: 0.75rem 0;
-      padding-left: 1.2rem;
+
+    .features li, .testimonials li {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
       position: relative;
+      line-height: 1.6;
     }
-    .features li::before {
+
+    .features li::before, .testimonials li::before {
       content: "🌟";
       position: absolute;
       left: 0;
+      font-size: 1.2rem;
     }
-    form input, form textarea {
+
+    .gallery img {
       width: 100%;
-      padding: 0.6rem;
-      margin: 0.5rem 0 1rem;
+      max-width: 350px;
+      border-radius: 10px;
+      margin: 1rem auto;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .schedule table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .schedule th, .schedule td {
+      border: 1px solid #ddd;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .schedule th {
+      background-color: #ffe082;
+    }
+
+    .discount {
+      background-color: #fff9c4;
+      padding: 1.2rem;
+      border-left: 6px solid #ffeb3b;
+      margin-top: 1rem;
+      border-radius: 8px;
+      font-size: 1.05rem;
+    }
+
+    .signup form input, .signup form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.6rem 0 1.2rem;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1rem;
     }
-    form button {
-      background: #ffd93d;
+
+    .signup form button {
+      background: #ffca28;
       border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
+      padding: 0.9rem 1.6rem;
+      font-size: 1.1rem;
       border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s;
     }
+
+    .signup form button:hover {
+      background: #ffb300;
+    }
+
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #777;
+      color: #888;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 1.5rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AI 小小網頁設計師課程</h1>
+  <header class="animate__animated animate__bounceInDown">
+    <h1><i class="fas fa-robot"></i> AI 小小網頁設計師</h1>
   </header>
 
-  <section class="hero">
-    <img src="https://cdn-icons-png.flaticon.com/512/4321/4321078.png" alt="小朋友AI課程">
+  <section class="hero animate__animated animate__fadeInUp">
+    <img src="https://cdn-icons-png.flaticon.com/512/4321/4321078.png" alt="小朋友AI課程" />
     <h2>小朋友也能自己做網站！</h2>
-    <p>零基礎也能透過 AI 工具製作自己的 Landing Page！</p>
+    <p>從零開始，善用 AI 工具創作網站，讓孩子勇敢表達、開心學習！</p>
   </section>
 
-  <section class="features">
-    <h3>課程亮點</h3>
+  <section class="features animate__animated animate__fadeInUp">
+    <h3>📚 課程亮點</h3>
     <ul>
-      <li>適合國小 3-6 年級，無需程式背景</li>
-      <li>運用 ChatGPT 與 AI 畫圖工具</li>
-      <li>創作屬於自己的主題網站</li>
-      <li>成果發表會，邀請家長一起見證成長</li>
+      <li>適合國小 3～6 年級，無需程式背景</li>
+      <li>引導孩子用 ChatGPT、AI 畫圖工具發想創作</li>
+      <li>從設計到上線，一步步打造專屬網站</li>
+      <li>成果發表會，邀請家長一同見證成長</li>
     </ul>
   </section>
 
-  <section class="signup">
-    <h3>立即報名</h3>
+  <section class="gallery animate__animated animate__fadeInUp">
+    <h3>🎨 學員成果展示</h3>
+    <p>孩子們創作的網站作品：</p>
+    <a href="https://example.com/student-site1" target="_blank">🍱 美食分享網站</a><br />
+    <a href="https://example.com/student-site2" target="_blank">🪐 宇宙冒險主題頁</a><br />
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="學員網站展示" />
+  </section>
+
+  <section class="schedule animate__animated animate__fadeInUp">
+    <h3>🗓️ 課程時程表</h3>
+    <p>每週一次，共四週：</p>
+    <table>
+      <tr>
+        <th>週次</th>
+        <th>主題</th>
+      </tr>
+      <tr>
+        <td>第 1 週</td>
+        <td>認識 AI 與 ChatGPT，設定主題</td>
+      </tr>
+      <tr>
+        <td>第 2 週</td>
+        <td>AI 繪圖 + HTML 基礎</td>
+      </tr>
+      <tr>
+        <td>第 3 週</td>
+        <td>網站排版與互動設計</td>
+      </tr>
+      <tr>
+        <td>第 4 週</td>
+        <td>統整作品 + 成果發表會</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="testimonials animate__animated animate__fadeInUp">
+    <h3>👨‍👩‍👧‍👦 家長見證</h3>
+    <ul>
+      <li>「第一次看到孩子這麼主動學習！超驚喜！」－媽媽 Lily</li>
+      <li>「不只學會設計網站，還會教我用 ChatGPT！」－爸爸 Kevin</li>
+      <li>「發表會我感動到流淚，真的很棒！」－家長 Ivy</li>
+    </ul>
+  </section>
+
+  <section class="faq animate__animated animate__fadeInUp">
+    <h3>❓ 常見問題 FAQ</h3>
+    <details>
+      <summary>課程需要帶電腦嗎？</summary>
+      <p>不需要，我們現場提供筆電與上網設備，孩子可專心上課。</p>
+    </details>
+    <details>
+      <summary>適合完全沒接觸過電腦的孩子嗎？</summary>
+      <p>非常適合！我們有專業助教協助，循序漸進，讓孩子建立信心。</p>
+    </details>
+    <details>
+      <summary>家長可以旁聽嗎？</summary>
+      <p>歡迎家長於第一堂與成果發表會旁聽，其餘時間建議讓孩子獨立學習。</p>
+    </details>
+    <details>
+      <summary>課程費用包含哪些內容？</summary>
+      <p>包含教材費、AI 工具帳號、現場筆電使用費、講師與助教指導。</p>
+    </details>
+  </section>
+  
+  <section class="location animate__animated animate__fadeInUp">
+    <h3>📍 上課地點</h3>
+    <p>課程地點：新北市板橋區文化路一段 XX 號 3 樓（捷運板橋站步行 5 分鐘）</p>
+    <div style="width: 100%; height: 300px; margin-top: 1rem; border-radius: 12px; overflow: hidden;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.972912801374!2d121.4620143!3d25.0142936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a855fa61c5a5%3A0x1234567890abcdef!2z5paw5YyX5biC5rCR5rC05Y2A5Y-w5YyX6Lev6L-q!5e0!3m2!1szh-TW!2stw!4v1716262768089!5m2!1szh-TW!2stw"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>  
+
+  <section class="discount animate__animated animate__fadeInUp">
+    <h3>🎁 限時優惠</h3>
+    <p>報名 <strong>第二梯次</strong> 即享早鳥折扣價，加贈「AI 小畫家入門包」！<br>名額有限，快來搶位！</p>
+  </section>
+
+  <section class="signup animate__animated animate__fadeInUp">
+    <h3>📩 立即報名</h3>
     <form id="signup-form">
-      <input type="text" name="childName" placeholder="孩子姓名" required>
-      <input type="text" name="parentName" placeholder="家長姓名" required>
-      <input type="tel" name="phone" placeholder="聯絡電話" required>
-      <input type="email" name="email" placeholder="Email 信箱" required>
+      <input type="text" name="childName" placeholder="孩子姓名" required />
+      <input type="text" name="parentName" placeholder="家長姓名" required />
+      <input type="tel" name="phone" placeholder="聯絡電話" required />
+      <input type="email" name="email" placeholder="Email 信箱" required />
       <textarea name="note" placeholder="備註 / 想了解的內容"></textarea>
-      <button type="submit">送出報名表單</button>
+      <button type="submit"><i class="fas fa-paper-plane"></i> 送出報名表單</button>
     </form>
   </section>
 
   <footer>
-    若有問題歡迎聯絡我們｜LINE：@AIkidsdesign
+    有任何問題歡迎聯絡我們｜LINE：@AIkidsdesign
   </footer>
 
   <script>
     const form = document.getElementById("signup-form");
-  
-    form.addEventListener("submit", function(e) {
+
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-  
+
       const formData = {
         childName: form.childName.value,
         parentName: form.parentName.value,
@@ -130,20 +298,20 @@
         email: form.email.value,
         note: form.note.value
       };
-  
+
       fetch("https://script.google.com/macros/s/AKfycbwfVCHJdgn_eOmWToAn0wo_wA4Zou56piarfvd7ox_tQLyf5996Khy-uNl7Xc32jOwoFg/exec", {
         method: "POST",
         body: JSON.stringify(formData)
       })
-      .then(res => res.text())
-      .then(response => {
-        alert("報名成功，感謝您的填寫！");
-        form.reset();
-      })
-      .catch(err => {
-        alert("報名失敗，請稍後再試");
-        console.error(err);
-      });
+        .then(res => res.text())
+        .then(response => {
+          alert("報名成功，感謝您的填寫！");
+          form.reset();
+        })
+        .catch(err => {
+          alert("報名失敗，請稍後再試");
+          console.error(err);
+        });
     });
   </script>
 </body>
